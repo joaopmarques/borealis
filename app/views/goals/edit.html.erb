@@ -1,0 +1,6 @@
+<h1 class="heading-1"><%= @goal.name %></h1>
+
+<%# While this is CRUD-like behavior, we won't be using this form here. %>
+<%= render "form", goal: @goal %>
+
+<%= link_to 'Return', :back, class: 'btn-secondary mt-8' %>

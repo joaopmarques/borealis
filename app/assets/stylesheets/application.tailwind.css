@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Level 1 Heading */
+  .heading-1 {
+    @apply block font-light text-2xl text-emerald-500 my-3
+  }
+
+  /* Paragraph */
+  .paragraph {
+    @apply block text-lg text-gray-900 my-2
+  }
+}
+
+@layer components {
+  /* Button */
+  .btn {
+    @apply inline-block transition font-semibold bg-emerald-500 hover:bg-emerald-600 focus:ring-2 ring-emerald-600 text-white px-4 py-2 rounded-lg cursor-pointer;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-block transition font-semibold text-emerald-600 hover:text-emerald-500 py-2 cursor-pointer;
+  }
+}

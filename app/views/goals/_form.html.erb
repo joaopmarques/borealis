@@ -1,0 +1,12 @@
+<%= form_with model: goal do |form| %>
+  <div class="block p-3 bg-emerald-100 rounded-xl w-full md:w-2/3 lg:w-1/2">
+    <%= form.label "A goal, a milestone, an achievement", class: "block text-sm mb-2 text-emerald-800" %>
+    <%= form.text_field :name, class: "w-full inline-block mb-3 border-0 rounded-lg focus:ring-2 ring-inherit ring-inset" %>
+
+    <% goal.errors.full_messages_for(:name).each do |message| %>
+      <div class="inline-block w-full md:w-1/3 lg:w-1/2 text-sm bg-amber-50 text-amber-600 p-2 mb-3 rounded-md"><%= message %></div>
+    <% end %>
+
+    <%= form.submit "Plant a Seed", class: 'btn block w-full' %>
+  </div>
+<% end %>
