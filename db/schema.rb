@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_105128) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_201732) do
   create_table "goals", force: :cascade do |t|
     t.string "name"
     t.boolean "completed"
     t.datetime "completion_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "length", default: 1
   end
 
 end

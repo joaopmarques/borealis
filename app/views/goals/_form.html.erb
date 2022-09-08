@@ -1,12 +1,35 @@
 <%= form_with model: goal do |form| %>
   <div class="block p-3 bg-emerald-100 rounded-xl w-full md:w-2/3 lg:w-1/2">
-    <%= form.label "A goal, a milestone, an achievement", class: "block text-sm mb-2 text-emerald-800" %>
+    <%# Goal name %>
+    <%= form.label "Name your seed", class: "block text-sm mb-2 text-emerald-800" %>
     <%= form.text_field :name, class: "w-full inline-block mb-3 border-0 rounded-lg focus:ring-2 ring-inherit ring-inset" %>
-
+    <span class="block text-xs mb-6 text-emerald-600">
+      Think of what you want to cultivate in your life - a goal, a dream,
+      a habit - and name a seed after it.
+    </span>
+    <%# Errors %>
     <% goal.errors.full_messages_for(:name).each do |message| %>
       <div class="inline-block w-full md:w-1/3 lg:w-1/2 text-sm bg-amber-50 text-amber-600 p-2 mb-3 rounded-md"><%= message %></div>
     <% end %>
 
+    <%# Goal length %>
+    <%= form.label "How many seasons will this take to grow?", class: "block text-sm mb-2 text-emerald-800" %>
+    <%= form.number_field :length, class: "w-full inline-block mb-3 border-0 rounded-lg focus:ring-2 ring-inherit ring-inset" %>
+    <span class="block text-xs mb-6 text-emerald-600">
+      <strong>A word of advice:</strong>
+      This is just a suggestion, you can change it later if it takes longer.<br>
+      What matters is moving in the right direction, not how long it takes!
+    </span>
+
+    <%# Goal completion - show only when editing %>
+    <% if params[:action] === "edit" %>
+      <div class="flex mb-8">
+        <%= form.label "Has this seed flourished?", class: "inline-block text-sm text-emerald-800" %>
+        <%= form.check_box :completed, class: "inline-block ml-auto w-5 h-5 border-0 rounded-lg focus:ring-2 ring-inherit ring-inset" %>
+      </div>
+    <% end %>
+
+    <%# Form submission %>
     <%= form.submit "Plant a Seed", class: 'btn block w-full' %>
   </div>
 <% end %>

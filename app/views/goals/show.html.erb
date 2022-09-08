@@ -1,13 +1,24 @@
 <h1 class='heading-1'><%= @goal.name %></h1>
 
-<p class='paragraph'>Reflect on what you've sown gently.</p>
+<p class='paragraph text-xl mb-8'>
+  <% if @goal.length > 1 %>
+    You may harvest the fruits of this seed after <%= @goal.length %>
+    seasons pass.
+  <% else %>
+    You may harvest the fruits of this seed after a season has passed.
+  <% end %>
+</p>
+
+Harvested? <%= @goal.completed %>
+
+<p class='paragraph mt-8'>Reflect gently on what you've sown.</p>
 <p class='paragraph'>When you're ready, return to the Garden.</p>
 
 <div class='flex gap-8 mt-8'>
   <%= link_to 'Return to the Garden', goals_path, class: 'btn-secondary' %>
-  <%= link_to 'Edit', edit_goal_path(@goal), class: 'btn-secondary' %>
-  <%= link_to 'Delete', goal_path(@goal), data: {
+  <%= link_to 'Prune', edit_goal_path(@goal), class: 'btn-secondary' %>
+  <%= link_to 'Uproot', goal_path(@goal), data: {
     turbo_method: :delete,
-    turbo_confirm: "Do you want to delete this seed?"
+    turbo_confirm: "Do you want to uproot this plant? This cannot be reversed."
   }, class: 'btn-secondary' %>
 </div>
