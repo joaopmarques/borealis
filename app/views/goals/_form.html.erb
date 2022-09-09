@@ -1,3 +1,5 @@
+<% submission_string = params[:action] === "edit" ? 'Prune' : 'Plant a Seed' %>
+
 <%= form_with model: goal do |form| %>
   <div class="block p-3 bg-emerald-100 rounded-xl w-full md:w-2/3 lg:w-1/2">
     <%# Goal name %>
@@ -24,12 +26,12 @@
     <%# Goal completion - show only when editing %>
     <% if params[:action] === "edit" %>
       <div class="flex mb-8">
-        <%= form.label "Has this seed flourished?", class: "inline-block text-sm text-emerald-800" %>
+        <%= form.label "Has this seed sprouted already?", class: "inline-block text-sm text-emerald-800" %>
         <%= form.check_box :completed, class: "inline-block ml-auto w-5 h-5 border-0 rounded-lg focus:ring-2 ring-inherit ring-inset" %>
       </div>
     <% end %>
 
     <%# Form submission %>
-    <%= form.submit "Plant a Seed", class: 'btn block w-full' %>
+    <%= form.submit submission_string, class: 'btn block w-full' %>
   </div>
 <% end %>

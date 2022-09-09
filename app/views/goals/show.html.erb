@@ -1,18 +1,24 @@
 <h1 class='heading-1'><%= @goal.name %></h1>
 
-<p class='paragraph text-xl mb-8'>
+<p class='paragraph mb-4x'>
   <% if @goal.length > 1 %>
-    You may harvest the fruits of this seed after <%= @goal.length %>
-    seasons pass.
+    <%= @human_length.capitalize %> seasons to bear fruit
   <% else %>
-    You may harvest the fruits of this seed after a season has passed.
+    One season to bear fruit
   <% end %>
 </p>
 
-Harvested? <%= @goal.completed %>
+<p class='paragraph mt-4'>
+  <% if @goal.completed %>
+    This seed can be harvested!
+    <%# TODO: add harvesting feature %>
+  <% end %>
+</p>
 
-<p class='paragraph mt-8'>Reflect gently on what you've sown.</p>
-<p class='paragraph'>When you're ready, return to the Garden.</p>
+<span class="block text-md my-8 p-4 bg-emerald-100 text-emerald-600 rounded-lg">
+  <strong>Reflect gently on what you've sown.</strong>
+  When you're ready, return to the Garden.
+</span>
 
 <div class='flex gap-8 mt-8'>
   <%= link_to 'Return to the Garden', goals_path, class: 'btn-secondary' %>

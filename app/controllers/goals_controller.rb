@@ -6,6 +6,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @human_length = @goal.length.humanize
   end
 
   def new
