@@ -7,7 +7,7 @@ This is a simple app to track goals. Check in on your personal development witho
 
 ### Dependencies:
 * Ruby 3.1.2
-* Ruby on Rails 7.0.3.1
+* Ruby on Rails 7.0.4
 
 ### To install and run:
 1. Clone the repo
