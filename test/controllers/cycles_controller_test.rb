@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CycleTest < ActiveSupport::TestCase
+class CyclesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
